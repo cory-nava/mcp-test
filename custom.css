@@ -1,0 +1,372 @@
+/**
+ * City Permitting Portal - Custom CSS
+ * 
+ * Additional styles to complement USWDS components
+ * Created via MCP server as part of the demo application.
+ */
+
+/* Custom color variables */
+:root {
+    --permit-primary: #0076d6;
+    --permit-success: #00a91c;
+    --permit-warning: #ffbe2e;
+    --permit-error: #d54309;
+    --permit-light-gray: #f0f0f0;
+    --permit-border-gray: #dfe1e2;
+}
+
+/* Enhanced permit cards with better visual hierarchy */
+.permit-card {
+    border-left: 4px solid var(--permit-primary);
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+}
+
+.permit-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+/* Status-specific styling */
+.status-approved { 
+    border-left-color: var(--permit-success); 
+}
+
+.status-approved .usa-tag {
+    background-color: var(--permit-success);
+    color: white;
+}
+
+.status-pending { 
+    border-left-color: var(--permit-warning); 
+}
+
+.status-pending .usa-tag {
+    background-color: var(--permit-warning);
+    color: #1b1b1b;
+}
+
+.status-rejected { 
+    border-left-color: var(--permit-error); 
+}
+
+.status-rejected .usa-tag {
+    background-color: var(--permit-error);
+    color: white;
+}
+
+.status-under-review { 
+    border-left-color: var(--permit-primary); 
+}
+
+.status-under-review .usa-tag {
+    background-color: var(--permit-primary);
+    color: white;
+}
+
+/* Dashboard statistics grid */
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--permit-light-gray);
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.stat-card:hover {
+    background: #e8f4fd;
+    border-color: var(--permit-primary);
+    transform: translateY(-1px);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--permit-primary);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card div:last-child {
+    color: #565c65;
+    font-weight: 500;
+}
+
+/* Timeline styling */
+.timeline-item {
+    border-left: 2px solid var(--permit-border-gray);
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--permit-primary);
+    box-shadow: 0 0 0 3px white, 0 0 0 4px var(--permit-primary);
+}
+
+.timeline-item:last-child {
+    border-left-color: var(--permit-success);
+}
+
+.timeline-item:last-child::before {
+    background: var(--permit-success);
+    box-shadow: 0 0 0 3px white, 0 0 0 4px var(--permit-success);
+}
+
+.timeline-item h4 {
+    color: var(--permit-primary);
+    margin-bottom: 0.25rem;
+}
+
+.timeline-item p:first-of-type {
+    font-weight: 600;
+    color: #565c65;
+    margin-bottom: 0.25rem;
+}
+
+/* Form enhancements */
+.permit-form-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0.25rem;
+    border: 1px solid #e6e6e6;
+}
+
+.usa-fieldset {
+    margin-bottom: 2rem;
+}
+
+.usa-legend--large {
+    color: var(--permit-primary);
+    border-bottom: 2px solid var(--permit-border-gray);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* File upload styling */
+.usa-file-input__target {
+    border: 2px dashed var(--permit-border-gray);
+    transition: all 0.3s ease;
+}
+
+.usa-file-input__target:hover {
+    border-color: var(--permit-primary);
+    background-color: #f8f9fa;
+}
+
+/* Button enhancements */
+.usa-button--outline:hover {
+    background-color: var(--permit-primary);
+    border-color: var(--permit-primary);
+}
+
+/* Search enhancements */
+.usa-search--big .usa-input {
+    font-size: 1.06rem;
+    padding: 0.75rem 1rem;
+}
+
+.usa-search button:hover {
+    background-color: #004785;
+}
+
+/* Alert modifications */
+.usa-alert--success {
+    border-left-color: var(--permit-success);
+}
+
+.usa-alert--warning {
+    border-left-color: var(--permit-warning);
+}
+
+.usa-alert--error {
+    border-left-color: var(--permit-error);
+}
+
+/* Hero section enhancements */
+.usa-hero {
+    background: linear-gradient(135deg, #0076d6 0%, #004785 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.usa-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="10" cy="60" r="0.5" fill="rgba(255,255,255,0.15)"/><circle cx="90" cy="40" r="0.5" fill="rgba(255,255,255,0.15)"/></svg>') repeat;
+}
+
+.usa-hero__callout {
+    position: relative;
+    z-index: 1;
+}
+
+/* Navigation enhancements */
+.usa-nav__link:hover {
+    background-color: rgba(0, 118, 214, 0.1);
+}
+
+.usa-current {
+    border-bottom: 3px solid var(--permit-primary);
+}
+
+/* Footer styling */
+.usa-footer {
+    background-color: #1f2937;
+    color: #e5e7eb;
+}
+
+.usa-footer__primary-link {
+    color: #f3f4f6;
+    font-weight: 600;
+}
+
+.usa-footer__secondary-link {
+    color: #d1d5db;
+}
+
+.usa-footer__secondary-link:hover {
+    color: white;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+    .dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-card {
+        padding: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .permit-form-section {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .timeline-item {
+        padding-left: 0.75rem;
+    }
+}
+
+/* Loading states */
+.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid var(--permit-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-in {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+/* Focus and accessibility improvements */
+*:focus {
+    outline: 2px solid var(--permit-primary);
+    outline-offset: 2px;
+}
+
+.usa-button:focus {
+    outline-color: #004785;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .permit-card {
+        border-left-width: 6px;
+    }
+    
+    .stat-card {
+        border: 2px solid var(--permit-border-gray);
+    }
+    
+    .timeline-item::before {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .usa-header,
+    .usa-footer,
+    .usa-button {
+        display: none;
+    }
+    
+    .permit-card {
+        border: 1px solid #000;
+        page-break-inside: avoid;
+    }
+    
+    .timeline-item {
+        border-left: 1px solid #000;
+    }
+}
