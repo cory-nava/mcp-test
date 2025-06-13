@@ -1,0 +1,20 @@
+{
+  "name": "city-permitting-portal",
+  "version": "1.0.0",
+  "description": "USWDS-based permitting application created via MCP server",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "serve": "npx http-server -p 8080"
+  },
+  "keywords": [
+    "uswds",
+    "government", 
+    "permits",
+    "civic-tech",
+    "accessibility"
+  ],
+  "author": "Cory Trimm",
+  "license": "Public Domain",
+  "homepage": "https://github.com/cory-nava/mcp-test"
+}
