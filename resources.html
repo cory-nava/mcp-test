@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - City Permitting Portal</title>
+    
+    <!-- USWDS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/css/uswds.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="usa-header usa-header--extended">
+        <div class="usa-navbar">
+            <div class="usa-logo">
+                <em class="usa-logo__text">
+                    <a href="index.html" title="Home" aria-label="Home">City Permitting Portal</a>
+                </em>
+            </div>
+            <button type="button" class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+            <div class="usa-nav__inner">
+                <button type="button" class="usa-nav__close">
+                    <img src="/img/usa-icons/close.svg" role="img" alt="Close">
+                </button>
+                <ul class="usa-nav__primary usa-accordion">
+                    <li class="usa-nav__primary-item">
+                        <a href="dashboard.html" class="usa-nav__link">Dashboard</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="apply.html" class="usa-nav__link">Apply for Permit</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="track.html" class="usa-nav__link">Track Application</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="resources.html" class="usa-nav__link usa-current">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <section class="usa-section">
+            <div class="grid-container">
+                <h1>Resources & Information</h1>
+                <p class="usa-intro">Find helpful resources, forms, and information about the permitting process.</p>
+                
+                <!-- Quick Links -->
+                <div class="grid-row grid-gap margin-bottom-4">
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">Fee Schedule</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>View current permit fees and payment information.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <button class="usa-button usa-button--outline" onclick="showFees()">View Fees</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">Building Codes</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Access current building codes and regulations.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <button class="usa-button usa-button--outline" onclick="showCodes()">View Codes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">Forms & Documents</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Download required forms and application documents.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <button class="usa-button usa-button--outline" onclick="showForms()">View Forms</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dynamic Content Area -->
+                <div id="dynamic-content">
+                    <!-- FAQ Section (Default) -->
+                    <div id="faq-section">
+                        <h2>Frequently Asked Questions</h2>
+                        
+                        <div class="usa-accordion usa-accordion--bordered">
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="faq1">
+                                    How long does it take to get a permit approved?
+                                </button>
+                            </h3>
+                            <div id="faq1" class="usa-accordion__content usa-prose">
+                                <p>Processing times vary by permit type:</p>
+                                <ul>
+                                    <li><strong>Building Permits:</strong> 10-14 business days</li>
+                                    <li><strong>Electrical Permits:</strong> 5-7 business days</li>
+                                    <li><strong>Plumbing Permits:</strong> 5-7 business days</li>
+                                    <li><strong>Mechanical Permits:</strong> 7-10 business days</li>
+                                </ul>
+                                <p>Complex projects may require additional review time.</p>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="faq2">
+                                    What documents do I need to submit?
+                                </button>
+                            </h3>
+                            <div id="faq2" class="usa-accordion__content usa-prose">
+                                <p>Required documents typically include:</p>
+                                <ul>
+                                    <li>Completed permit application</li>
+                                    <li>Building plans and specifications</li>
+                                    <li>Site survey or plot plan</li>
+                                    <li>Contractor license verification (if applicable)</li>
+                                    <li>Proof of insurance</li>
+                                </ul>
+                                <p>Additional documents may be required based on project complexity.</p>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="faq3">
+                                    Can I track my application online?
+                                </button>
+                            </h3>
+                            <div id="faq3" class="usa-accordion__content usa-prose">
+                                <p>Yes! You can track your permit application online using your application ID. Visit our <a href="track.html">Track Application</a> page and enter your ID to see real-time status updates.</p>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="faq4">
+                                    What if my application is rejected?
+                                </button>
+                            </h3>
+                            <div id="faq4" class="usa-accordion__content usa-prose">
+                                <p>If your application needs revisions, you'll receive detailed feedback explaining what needs to be corrected. You can then resubmit your application with the necessary changes. No additional fee is required for resubmissions within 30 days.</p>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="faq5">
+                                    Do I need a contractor for my project?
+                                </button>
+                            </h3>
+                            <div id="faq5" class="usa-accordion__content usa-prose">
+                                <p>For simple projects, you may be able to serve as an owner/builder. However, certain types of work require licensed professionals:</p>
+                                <ul>
+                                    <li>Electrical work must be performed by a licensed electrician</li>
+                                    <li>Plumbing work requires a licensed plumber</li>
+                                    <li>Structural work typically requires professional oversight</li>
+                                </ul>
+                                <p>Check with our office if you're unsure about your specific project.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fee Schedule Section (Hidden by default) -->
+                    <div id="fees-section" style="display: none;">
+                        <h2>Permit Fee Schedule</h2>
+                        <p>The following fees are effective as of January 1, 2024:</p>
+                        
+                        <div class="usa-table-container--scrollable">
+                            <table class="usa-table">
+                                <caption>Current Permit Fees</caption>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Permit Type</th>
+                                        <th scope="col">Base Fee</th>
+                                        <th scope="col">Additional Fees</th>
+                                        <th scope="col">Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Building Permit</th>
+                                        <td>$125.00</td>
+                                        <td>$0.50 per sq ft over 1,000 sq ft</td>
+                                        <td>Includes plan review</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Electrical Permit</th>
+                                        <td>$75.00</td>
+                                        <td>$25.00 per additional panel</td>
+                                        <td>Inspection included</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Plumbing Permit</th>
+                                        <td>$85.00</td>
+                                        <td>$15.00 per fixture</td>
+                                        <td>Rough-in inspection required</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Mechanical Permit</th>
+                                        <td>$95.00</td>
+                                        <td>Based on BTU capacity</td>
+                                        <td>Energy compliance review</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-2">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Payment Methods</h4>
+                                <p class="usa-alert__text">
+                                    We accept cash, check, credit cards (Visa, MasterCard, American Express), and online payments through our portal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Building Codes Section (Hidden by default) -->
+                    <div id="codes-section" style="display: none;">
+                        <h2>Building Codes & Regulations</h2>
+                        <p>The City of Springfield follows the latest International Building Codes with local amendments.</p>
+                        
+                        <div class="grid-row grid-gap">
+                            <div class="tablet:grid-col-6">
+                                <h3>Current Adopted Codes</h3>
+                                <ul class="usa-list">
+                                    <li><strong>2021 International Building Code (IBC)</strong></li>
+                                    <li><strong>2021 International Residential Code (IRC)</strong></li>
+                                    <li><strong>2020 National Electrical Code (NEC)</strong></li>
+                                    <li><strong>2021 International Plumbing Code (IPC)</strong></li>
+                                    <li><strong>2021 International Mechanical Code (IMC)</strong></li>
+                                    <li><strong>2021 International Energy Conservation Code (IECC)</strong></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tablet:grid-col-6">
+                                <h3>Local Amendments</h3>
+                                <ul class="usa-list">
+                                    <li>Springfield Fire Prevention Code</li>
+                                    <li>Zoning Ordinance Chapter 155</li>
+                                    <li>Flood Damage Prevention Ordinance</li>
+                                    <li>Historic District Guidelines</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="usa-summary-box margin-top-3">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Code Resources</h3>
+                                <div class="usa-summary-box__text">
+                                    <ul class="usa-list usa-list--unstyled">
+                                        <li><a href="#" class="usa-link">View Online Code Library</a></li>
+                                        <li><a href="#" class="usa-link">Download Local Amendments (PDF)</a></li>
+                                        <li><a href="#" class="usa-link">Historic District Guidelines</a></li>
+                                        <li><a href="#" class="usa-link">Accessibility Requirements</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Forms Section (Hidden by default) -->
+                    <div id="forms-section" style="display: none;">
+                        <h2>Forms & Documents</h2>
+                        <p>Download the forms and documents you need for your permit application.</p>
+                        
+                        <div class="grid-row grid-gap">
+                            <div class="tablet:grid-col-6">
+                                <h3>Application Forms</h3>
+                                <ul class="usa-list">
+                                    <li><a href="#" class="usa-link">Building Permit Application (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Electrical Permit Application (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Plumbing Permit Application (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Mechanical Permit Application (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Demolition Permit Application (PDF)</a></li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tablet:grid-col-6">
+                                <h3>Supporting Documents</h3>
+                                <ul class="usa-list">
+                                    <li><a href="#" class="usa-link">Plan Review Checklist (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Site Plan Requirements (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Contractor Registration Form (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Inspection Request Form (PDF)</a></li>
+                                    <li><a href="#" class="usa-link">Appeal Process Guidelines (PDF)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-3">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Need Help with Forms?</h4>
+                                <p class="usa-alert__text">
+                                    Our staff can help you complete forms or answer questions about required documentation. 
+                                    Call (217) 555-0123 or visit our office during business hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="usa-section usa-section--light margin-top-4">
+                    <h2>Contact Information</h2>
+                    <div class="grid-row grid-gap">
+                        <div class="tablet:grid-col-4">
+                            <h3>Building Department</h3>
+                            <p>
+                                123 Government Plaza<br>
+                                Springfield, IL 62701<br>
+                                <strong>Phone:</strong> (217) 555-0123<br>
+                                <strong>Email:</strong> permits@springfield.gov
+                            </p>
+                        </div>
+                        
+                        <div class="tablet:grid-col-4">
+                            <h3>Office Hours</h3>
+                            <p>
+                                <strong>Monday - Friday:</strong> 8:00 AM - 5:00 PM<br>
+                                <strong>Saturday:</strong> Closed<br>
+                                <strong>Sunday:</strong> Closed<br>
+                                <strong>Holidays:</strong> Closed
+                            </p>
+                        </div>
+                        
+                        <div class="tablet:grid-col-4">
+                            <h3>Emergency Contacts</h3>
+                            <p>
+                                <strong>After Hours:</strong> (217) 555-0199<br>
+                                <strong>Building Emergencies:</strong> 911<br>
+                                <strong>Non-Emergency:</strong> (217) 555-0100
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="usa-footer">
+        <div class="grid-container usa-footer__return-to-top">
+            <a href="#">Return to top</a>
+        </div>
+        <div class="usa-footer__secondary-section">
+            <div class="grid-container">
+                <div class="usa-footer__logo grid-row grid-gap-2">
+                    <div class="grid-col-auto">
+                        <p class="usa-footer__logo-text">City of Springfield Permitting Portal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- USWDS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/js/uswds.min.js"></script>
+    
+    <script>
+        // Show/hide different sections
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = ['faq-section', 'fees-section', 'codes-section', 'forms-section'];
+            sections.forEach(id => {
+                document.getElementById(id).style.display = 'none';
+            });
+            
+            // Show requested section
+            document.getElementById(sectionId).style.display = 'block';
+            
+            // Scroll to content
+            document.getElementById('dynamic-content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function showFees() {
+            showSection('fees-section');
+        }
+
+        function showCodes() {
+            showSection('codes-section');
+        }
+
+        function showForms() {
+            showSection('forms-section');
+        }
+
+        function showFAQ() {
+            showSection('faq-section');
+        }
+    </script>
+    
+    <style>
+        .usa-card {
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .usa-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .usa-table th {
+            background-color: #f0f0f0;
+        }
+        
+        .usa-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .usa-section--light {
+            background-color: #f8f9fa;
+            padding: 2rem 0;
+            border-radius: 0.25rem;
+        }
+    </style>
+</body>
+</html>

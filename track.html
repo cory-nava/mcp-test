@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Application - City Permitting Portal</title>
+    
+    <!-- USWDS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/css/uswds.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="usa-header usa-header--extended">
+        <div class="usa-navbar">
+            <div class="usa-logo">
+                <em class="usa-logo__text">
+                    <a href="index.html" title="Home" aria-label="Home">City Permitting Portal</a>
+                </em>
+            </div>
+            <button type="button" class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+            <div class="usa-nav__inner">
+                <button type="button" class="usa-nav__close">
+                    <img src="/img/usa-icons/close.svg" role="img" alt="Close">
+                </button>
+                <ul class="usa-nav__primary usa-accordion">
+                    <li class="usa-nav__primary-item">
+                        <a href="dashboard.html" class="usa-nav__link">Dashboard</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="apply.html" class="usa-nav__link">Apply for Permit</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="track.html" class="usa-nav__link usa-current">Track Application</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="resources.html" class="usa-nav__link">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Application Tracking Section -->
+        <section class="usa-section">
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-8">
+                        <h1>Track Your Application</h1>
+                        <p class="usa-intro">Enter your application ID to check the status of your permit.</p>
+                        
+                        <div class="usa-search usa-search--big">
+                            <div role="search">
+                                <label class="usa-sr-only" for="search-field">Search for application</label>
+                                <input class="usa-input" id="search-field" type="search" name="search" placeholder="Enter Application ID (e.g., BP-2024-0341)">
+                                <button class="usa-button" type="submit" id="search-btn">
+                                    <span class="usa-sr-only">Search</span>
+                                    <img src="data:image/svg+xml;base64,PHN2ZyBjbGFzcz0idXNhLWljb24iIGFyaWEtaGlkZGVuPSJ0cnVlIiBmb2N1c2FibGU9ImZhbHNlIiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cGF0aCBkPSJtMTYuNjEgMTUuMjYgNC44NCA0Ljg0IDEuMzktMS4zOS00Ljg0LTQuODRjMS4wNS0xLjMgMS42OC0yLjk0IDEuNjgtNC43NSAwLTQuMDgtMy4zMi03LjQtNy40LTcuNHMtNy40IDMuMzItNy40IDcuNHMzLjMyIDcuNCA3LjQgNy40YzEuOCAwIDMuNDUtLjY0IDQuNzUtMS42OXptLTUuMjktMS4xMmMtMi43NiAwLTUtMi4yNC01LTVzMi4yNC01IDUtNXM1IDIuMjQgNSA1cy0yLjI0IDUtNSA1eiI+PC9wYXRoPgo8L3N2Zz4K" alt="Search" />
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sample Applications for Demo -->
+                        <div class="margin-top-3">
+                            <div class="usa-alert usa-alert--info usa-alert--no-icon">
+                                <div class="usa-alert__body">
+                                    <h4 class="usa-alert__heading">Demo Application IDs</h4>
+                                    <p class="usa-alert__text">
+                                        Try searching for: <strong>BP-2024-0341</strong>, <strong>EP-2024-0298</strong>, <strong>PP-2024-0156</strong>, or <strong>MP-2024-0423</strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Application Status Display -->
+                        <div id="application-results" style="display: none;">
+                            <div class="usa-card margin-top-3">
+                                <div class="usa-card__container">
+                                    <div class="usa-card__header">
+                                        <h2 class="usa-card__heading" id="app-title">Application Status</h2>
+                                    </div>
+                                    <div class="usa-card__body">
+                                        <div class="grid-row grid-gap">
+                                            <div class="tablet:grid-col-6">
+                                                <p><strong>Permit Type:</strong> <span id="permit-type"></span></p>
+                                                <p><strong>Property:</strong> <span id="property-address"></span></p>
+                                                <p><strong>Submitted:</strong> <span id="submit-date"></span></p>
+                                                <p><strong>Current Status:</strong> <span id="current-status"></span></p>
+                                            </div>
+                                            <div class="tablet:grid-col-6">
+                                                <p><strong>Assigned Reviewer:</strong> <span id="reviewer-name"></span></p>
+                                                <p><strong>Expected Decision:</strong> <span id="expected-date"></span></p>
+                                                <p><strong>Application Fee:</strong> <span id="app-fee"></span></p>
+                                                <p><strong>Estimated Completion:</strong> <span id="completion-date"></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Application Timeline -->
+                            <h3>Application Timeline</h3>
+                            <div id="timeline-container">
+                                <!-- Timeline items will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- No Results Message -->
+                        <div id="no-results" style="display: none;">
+                            <div class="usa-alert usa-alert--warning margin-top-3">
+                                <div class="usa-alert__body">
+                                    <h4 class="usa-alert__heading">Application Not Found</h4>
+                                    <p class="usa-alert__text">
+                                        No application found with that ID. Please check your application ID and try again.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-summary-box">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Need Help?</h3>
+                                <div class="usa-summary-box__text">
+                                    <p>Contact the Permitting Office:</p>
+                                    <p><strong>Phone:</strong> (217) 555-0123</p>
+                                    <p><strong>Email:</strong> permits@springfield.gov</p>
+                                    <p><strong>Hours:</strong> Monday-Friday, 8 AM - 5 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="usa-summary-box margin-top-2">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Status Definitions</h3>
+                                <div class="usa-summary-box__text">
+                                    <p><strong>Submitted:</strong> Application received and logged</p>
+                                    <p><strong>Under Review:</strong> Being reviewed by staff</p>
+                                    <p><strong>Pending Payment:</strong> Awaiting fee payment</p>
+                                    <p><strong>Approved:</strong> Permit issued</p>
+                                    <p><strong>Needs Revision:</strong> Changes required</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="usa-footer">
+        <div class="grid-container usa-footer__return-to-top">
+            <a href="#">Return to top</a>
+        </div>
+        <div class="usa-footer__secondary-section">
+            <div class="grid-container">
+                <div class="usa-footer__logo grid-row grid-gap-2">
+                    <div class="grid-col-auto">
+                        <p class="usa-footer__logo-text">City of Springfield Permitting Portal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- USWDS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/js/uswds.min.js"></script>
+    
+    <script>
+        // Fake application data that rotates
+        const applicationData = {
+            'BP-2024-0341': {
+                type: 'Building Permit - Deck Addition',
+                property: '123 Main Street, Springfield, IL',
+                submitted: 'March 15, 2024',
+                status: 'Under Review',
+                statusClass: 'usa-tag--big',
+                reviewer: 'Sarah Johnson',
+                expectedDate: 'March 29, 2024',
+                fee: '$125.00 (Paid)',
+                completion: 'April 5, 2024',
+                timeline: [
+                    {
+                        title: 'Application Submitted',
+                        date: 'March 15, 2024 - 2:30 PM',
+                        description: 'Your application has been received and assigned ID BP-2024-0341.',
+                        completed: true
+                    },
+                    {
+                        title: 'Initial Review Started',
+                        date: 'March 16, 2024 - 9:15 AM',
+                        description: 'Application assigned to reviewer Sarah Johnson for completeness check.',
+                        completed: true
+                    },
+                    {
+                        title: 'Technical Review in Progress',
+                        date: 'March 18, 2024 - 10:45 AM',
+                        description: 'Building plans are being reviewed for code compliance.',
+                        completed: true
+                    },
+                    {
+                        title: 'Pending - Awaiting Decision',
+                        date: 'Current Status',
+                        description: 'Review is ongoing. You will be notified when a decision is made.',
+                        completed: false
+                    }
+                ]
+            },
+            'EP-2024-0298': {
+                type: 'Electrical Permit - Panel Upgrade',
+                property: '456 Oak Avenue, Springfield, IL',
+                submitted: 'February 28, 2024',
+                status: 'Approved',
+                statusClass: 'usa-tag--big bg-success',
+                reviewer: 'Mike Peterson',
+                expectedDate: 'March 14, 2024',
+                fee: '$75.00 (Paid)',
+                completion: 'March 12, 2024',
+                timeline: [
+                    {
+                        title: 'Application Submitted',
+                        date: 'February 28, 2024 - 1:15 PM',
+                        description: 'Electrical permit application received.',
+                        completed: true
+                    },
+                    {
+                        title: 'Plans Review',
+                        date: 'March 1, 2024 - 11:30 AM',
+                        description: 'Electrical plans reviewed and approved.',
+                        completed: true
+                    },
+                    {
+                        title: 'Inspection Scheduled',
+                        date: 'March 8, 2024 - 2:00 PM',
+                        description: 'Site inspection completed successfully.',
+                        completed: true
+                    },
+                    {
+                        title: 'Permit Approved',
+                        date: 'March 12, 2024 - 9:30 AM',
+                        description: 'Electrical permit has been approved and issued.',
+                        completed: true
+                    }
+                ]
+            },
+            'PP-2024-0156': {
+                type: 'Plumbing Permit - Bathroom Renovation',
+                property: '789 Pine Street, Springfield, IL',
+                submitted: 'March 22, 2024',
+                status: 'Pending Payment',
+                statusClass: 'usa-tag--big',
+                reviewer: 'Lisa Chen',
+                expectedDate: 'April 8, 2024',
+                fee: '$85.00 (Outstanding)',
+                completion: 'April 15, 2024',
+                timeline: [
+                    {
+                        title: 'Application Submitted',
+                        date: 'March 22, 2024 - 3:45 PM',
+                        description: 'Plumbing permit application received.',
+                        completed: true
+                    },
+                    {
+                        title: 'Document Review',
+                        date: 'March 23, 2024 - 10:00 AM',
+                        description: 'Plans and specifications reviewed.',
+                        completed: true
+                    },
+                    {
+                        title: 'Pending Payment',
+                        date: 'Current Status',
+                        description: 'Application approved pending payment of permit fee.',
+                        completed: false
+                    }
+                ]
+            },
+            'MP-2024-0423': {
+                type: 'Mechanical Permit - HVAC Installation',
+                property: '321 Elm Drive, Springfield, IL',
+                submitted: 'March 10, 2024',
+                status: 'Needs Revision',
+                statusClass: 'usa-tag--big',
+                reviewer: 'Tom Wilson',
+                expectedDate: 'March 28, 2024',
+                fee: '$95.00 (Paid)',
+                completion: 'TBD',
+                timeline: [
+                    {
+                        title: 'Application Submitted',
+                        date: 'March 10, 2024 - 11:20 AM',
+                        description: 'HVAC permit application received.',
+                        completed: true
+                    },
+                    {
+                        title: 'Initial Review',
+                        date: 'March 12, 2024 - 2:15 PM',
+                        description: 'Application reviewed for completeness.',
+                        completed: true
+                    },
+                    {
+                        title: 'Revision Required',
+                        date: 'March 18, 2024 - 4:30 PM',
+                        description: 'Additional ventilation calculations required. Please resubmit updated plans.',
+                        completed: true
+                    },
+                    {
+                        title: 'Awaiting Resubmission',
+                        date: 'Current Status',
+                        description: 'Waiting for revised plans to be submitted.',
+                        completed: false
+                    }
+                ]
+            }
+        };
+
+        // Search functionality
+        document.getElementById('search-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+
+        document.getElementById('search-field').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+
+        function performSearch() {
+            const searchValue = document.getElementById('search-field').value.trim().toUpperCase();
+            const resultsDiv = document.getElementById('application-results');
+            const noResultsDiv = document.getElementById('no-results');
+            
+            if (applicationData[searchValue]) {
+                displayApplication(applicationData[searchValue], searchValue);
+                resultsDiv.style.display = 'block';
+                noResultsDiv.style.display = 'none';
+            } else {
+                resultsDiv.style.display = 'none';
+                noResultsDiv.style.display = 'block';
+            }
+        }
+
+        function displayApplication(data, appId) {
+            document.getElementById('app-title').textContent = `Application Status: ${appId}`;
+            document.getElementById('permit-type').textContent = data.type;
+            document.getElementById('property-address').textContent = data.property;
+            document.getElementById('submit-date').textContent = data.submitted;
+            document.getElementById('current-status').innerHTML = `<span class="${data.statusClass}">${data.status}</span>`;
+            document.getElementById('reviewer-name').textContent = data.reviewer;
+            document.getElementById('expected-date').textContent = data.expectedDate;
+            document.getElementById('app-fee').textContent = data.fee;
+            document.getElementById('completion-date').textContent = data.completion;
+
+            // Build timeline
+            const timelineContainer = document.getElementById('timeline-container');
+            timelineContainer.innerHTML = '';
+            
+            data.timeline.forEach(item => {
+                const timelineItem = document.createElement('div');
+                timelineItem.className = 'timeline-item';
+                timelineItem.innerHTML = `
+                    <h4>${item.title}</h4>
+                    <p><strong>${item.date}</strong></p>
+                    <p>${item.description}</p>
+                `;
+                timelineContainer.appendChild(timelineItem);
+            });
+        }
+
+        // Check URL parameters for direct linking
+        const urlParams = new URLSearchParams(window.location.search);
+        const appId = urlParams.get('id');
+        if (appId && applicationData[appId.toUpperCase()]) {
+            document.getElementById('search-field').value = appId.toUpperCase();
+            performSearch();
+        }
+
+        // Auto-rotate demo data every 10 seconds
+        let demoIndex = 0;
+        const demoIds = Object.keys(applicationData);
+        
+        function rotateDemoData() {
+            if (document.getElementById('search-field').value === '') {
+                const currentId = demoIds[demoIndex];
+                document.getElementById('search-field').value = currentId;
+                performSearch();
+                demoIndex = (demoIndex + 1) % demoIds.length;
+            }
+        }
+
+        // Start rotation after 3 seconds, then every 15 seconds
+        setTimeout(() => {
+            rotateDemoData();
+            setInterval(rotateDemoData, 15000);
+        }, 3000);
+    </script>
+    
+    <style>
+        .timeline-item {
+            border-left: 2px solid #dfe1e2;
+            padding-left: 1rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0.5rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #0076d6;
+            box-shadow: 0 0 0 3px white, 0 0 0 4px #0076d6;
+        }
+        
+        .timeline-item:last-child {
+            border-left-color: #00a91c;
+        }
+        
+        .timeline-item:last-child::before {
+            background: #00a91c;
+            box-shadow: 0 0 0 3px white, 0 0 0 4px #00a91c;
+        }
+        
+        .timeline-item h4 {
+            color: #0076d6;
+            margin-bottom: 0.25rem;
+        }
+        
+        .timeline-item p:first-of-type {
+            font-weight: 600;
+            color: #565c65;
+            margin-bottom: 0.25rem;
+        }
+        
+        .usa-search--big .usa-input {
+            font-size: 1.06rem;
+            padding: 0.75rem 1rem;
+        }
+        
+        .bg-success {
+            background-color: #00a91c !important;
+            color: white !important;
+        }
+    </style>
+</body>
+</html>

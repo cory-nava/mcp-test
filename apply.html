@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Permit - City Permitting Portal</title>
+    
+    <!-- USWDS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/css/uswds.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="usa-header usa-header--extended">
+        <div class="usa-navbar">
+            <div class="usa-logo">
+                <em class="usa-logo__text">
+                    <a href="index.html" title="Home" aria-label="Home">City Permitting Portal</a>
+                </em>
+            </div>
+            <button type="button" class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+            <div class="usa-nav__inner">
+                <button type="button" class="usa-nav__close">
+                    <img src="/img/usa-icons/close.svg" role="img" alt="Close">
+                </button>
+                <ul class="usa-nav__primary usa-accordion">
+                    <li class="usa-nav__primary-item">
+                        <a href="dashboard.html" class="usa-nav__link">Dashboard</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="apply.html" class="usa-nav__link usa-current">Apply for Permit</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="track.html" class="usa-nav__link">Track Application</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="resources.html" class="usa-nav__link">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Application Form Section -->
+        <section class="usa-section usa-section--light">
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-8">
+                        <h1>Apply for a New Permit</h1>
+                        <p class="usa-intro">Complete the form below to submit your permit application.</p>
+                        
+                        <div class="permit-form-section">
+                            <form class="usa-form usa-form--large" id="permit-application-form">
+                                <!-- Permit Type -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Permit Type</legend>
+                                    <div class="usa-radio">
+                                        <input class="usa-radio__input" id="building-permit" type="radio" name="permit-type" value="building" required>
+                                        <label class="usa-radio__label" for="building-permit">Building Permit ($125)</label>
+                                    </div>
+                                    <div class="usa-radio">
+                                        <input class="usa-radio__input" id="electrical-permit" type="radio" name="permit-type" value="electrical" required>
+                                        <label class="usa-radio__label" for="electrical-permit">Electrical Permit ($75)</label>
+                                    </div>
+                                    <div class="usa-radio">
+                                        <input class="usa-radio__input" id="plumbing-permit" type="radio" name="permit-type" value="plumbing" required>
+                                        <label class="usa-radio__label" for="plumbing-permit">Plumbing Permit ($85)</label>
+                                    </div>
+                                    <div class="usa-radio">
+                                        <input class="usa-radio__input" id="mechanical-permit" type="radio" name="permit-type" value="mechanical" required>
+                                        <label class="usa-radio__label" for="mechanical-permit">Mechanical Permit ($95)</label>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Property Information -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Property Information</legend>
+                                    
+                                    <label class="usa-label" for="property-address">Property Address *</label>
+                                    <input class="usa-input" id="property-address" name="property-address" type="text" required>
+                                    
+                                    <div class="grid-row grid-gap">
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="city">City *</label>
+                                            <input class="usa-input" id="city" name="city" type="text" value="Springfield" required>
+                                        </div>
+                                        <div class="tablet:grid-col-3">
+                                            <label class="usa-label" for="state">State *</label>
+                                            <select class="usa-select" id="state" name="state" required>
+                                                <option value="">Select State</option>
+                                                <option value="IL" selected>Illinois</option>
+                                                <option value="IN">Indiana</option>
+                                                <option value="IA">Iowa</option>
+                                            </select>
+                                        </div>
+                                        <div class="tablet:grid-col-3">
+                                            <label class="usa-label" for="zip">ZIP Code *</label>
+                                            <input class="usa-input" id="zip" name="zip" type="text" pattern="[0-9]{5}" required>
+                                        </div>
+                                    </div>
+
+                                    <label class="usa-label" for="parcel-number">Parcel Number</label>
+                                    <input class="usa-input" id="parcel-number" name="parcel-number" type="text">
+                                </fieldset>
+
+                                <!-- Applicant Information -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Applicant Information</legend>
+                                    
+                                    <div class="grid-row grid-gap">
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="first-name">First Name *</label>
+                                            <input class="usa-input" id="first-name" name="first-name" type="text" required>
+                                        </div>
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="last-name">Last Name *</label>
+                                            <input class="usa-input" id="last-name" name="last-name" type="text" required>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-row grid-gap">
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="email">Email Address *</label>
+                                            <input class="usa-input" id="email" name="email" type="email" required>
+                                        </div>
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="phone">Phone Number *</label>
+                                            <input class="usa-input" id="phone" name="phone" type="tel" required>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Project Details -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Project Details</legend>
+                                    
+                                    <label class="usa-label" for="project-description">Project Description *</label>
+                                    <textarea class="usa-textarea" id="project-description" name="project-description" rows="4" required placeholder="Describe the work to be performed..."></textarea>
+                                    
+                                    <div class="grid-row grid-gap">
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="estimated-cost">Estimated Project Cost *</label>
+                                            <div class="usa-input-prefix" data-prefix="$">
+                                                <input class="usa-input" id="estimated-cost" name="estimated-cost" type="number" min="0" step="0.01" required>
+                                            </div>
+                                        </div>
+                                        <div class="tablet:grid-col-6">
+                                            <label class="usa-label" for="start-date">Proposed Start Date *</label>
+                                            <input class="usa-input" id="start-date" name="start-date" type="date" required>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Contractor Information -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Contractor Information</legend>
+                                    
+                                    <div class="usa-checkbox">
+                                        <input class="usa-checkbox__input" id="owner-builder" type="checkbox" name="owner-builder">
+                                        <label class="usa-checkbox__label" for="owner-builder">Owner/Builder (No contractor)</label>
+                                    </div>
+                                    
+                                    <div id="contractor-fields">
+                                        <div class="grid-row grid-gap">
+                                            <div class="tablet:grid-col-6">
+                                                <label class="usa-label" for="contractor-name">Contractor Name</label>
+                                                <input class="usa-input" id="contractor-name" name="contractor-name" type="text">
+                                            </div>
+                                            <div class="tablet:grid-col-6">
+                                                <label class="usa-label" for="contractor-license">License Number</label>
+                                                <input class="usa-input" id="contractor-license" name="contractor-license" type="text">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="grid-row grid-gap">
+                                            <div class="tablet:grid-col-6">
+                                                <label class="usa-label" for="contractor-phone">Contractor Phone</label>
+                                                <input class="usa-input" id="contractor-phone" name="contractor-phone" type="tel">
+                                            </div>
+                                            <div class="tablet:grid-col-6">
+                                                <label class="usa-label" for="contractor-email">Contractor Email</label>
+                                                <input class="usa-input" id="contractor-email" name="contractor-email" type="email">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <!-- Document Upload -->
+                                <fieldset class="usa-fieldset">
+                                    <legend class="usa-legend usa-legend--large">Required Documents</legend>
+                                    
+                                    <div class="usa-file-input">
+                                        <div class="usa-file-input__target">
+                                            <div class="usa-file-input__instructions" aria-hidden="true">
+                                                <span class="usa-file-input__drag-text">Drag building plans here or </span>
+                                                <span class="usa-file-input__choose">choose from folder</span>
+                                            </div>
+                                            <div class="usa-file-input__box"></div>
+                                            <input id="building-plans" class="usa-file-input__input" type="file" name="building-plans" multiple accept=".pdf,.jpg,.jpeg,.png,.doc,.docx" aria-describedby="building-plans-hint">
+                                        </div>
+                                    </div>
+                                    <div class="usa-hint" id="building-plans-hint">
+                                        Upload building plans, site survey, and any other required documents. Accepted formats: PDF, JPG, PNG, DOC, DOCX. Multiple files accepted.
+                                    </div>
+                                </fieldset>
+
+                                <!-- Submit -->
+                                <div class="usa-form-group">
+                                    <button type="submit" class="usa-button usa-button--big">Submit Application</button>
+                                    <button type="button" class="usa-button usa-button--outline" id="save-draft">Save as Draft</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-summary-box">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Application Requirements</h3>
+                                <div class="usa-summary-box__text">
+                                    <ul class="usa-list">
+                                        <li>Completed application form</li>
+                                        <li>Building plans and specifications</li>
+                                        <li>Site survey or plot plan</li>
+                                        <li>Contractor license verification (if applicable)</li>
+                                        <li>Application fee payment</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-2">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Processing Time</h4>
+                                <p class="usa-alert__text">
+                                    Most permit applications are reviewed within 10-14 business days. Complex projects may require additional time.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="usa-summary-box margin-top-2">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Permit Fees</h3>
+                                <div class="usa-summary-box__text">
+                                    <ul class="usa-list usa-list--unstyled">
+                                        <li>Building Permit: $125</li>
+                                        <li>Electrical Permit: $75</li>
+                                        <li>Plumbing Permit: $85</li>
+                                        <li>Mechanical Permit: $95</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="usa-footer">
+        <div class="grid-container usa-footer__return-to-top">
+            <a href="#">Return to top</a>
+        </div>
+        <div class="usa-footer__secondary-section">
+            <div class="grid-container">
+                <div class="usa-footer__logo grid-row grid-gap-2">
+                    <div class="grid-col-auto">
+                        <p class="usa-footer__logo-text">City of Springfield Permitting Portal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- USWDS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/js/uswds.min.js"></script>
+    
+    <script>
+        // Form handling
+        document.getElementById('permit-application-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const permitType = formData.get('permit-type');
+            const applicationId = generateApplicationId(permitType);
+            
+            // Show success message
+            showSubmissionConfirmation(applicationId);
+        });
+
+        // Owner/Builder checkbox handling
+        document.getElementById('owner-builder').addEventListener('change', function() {
+            const contractorFields = document.getElementById('contractor-fields');
+            if (this.checked) {
+                contractorFields.style.display = 'none';
+                // Clear contractor field requirements
+                contractorFields.querySelectorAll('input').forEach(input => {
+                    input.removeAttribute('required');
+                });
+            } else {
+                contractorFields.style.display = 'block';
+            }
+        });
+
+        // Generate application ID
+        function generateApplicationId(permitType) {
+            const typeCode = {
+                'building': 'BP',
+                'electrical': 'EP',
+                'plumbing': 'PP',
+                'mechanical': 'MP'
+            };
+            
+            const year = new Date().getFullYear();
+            const randomNum = Math.floor(Math.random() * 9999).toString().padStart(4, '0');
+            
+            return `${typeCode[permitType] || 'GP'}-${year}-${randomNum}`;
+        }
+
+        // Show submission confirmation
+        function showSubmissionConfirmation(applicationId) {
+            const alertHTML = `
+                <div class="usa-alert usa-alert--success margin-bottom-2" role="alert">
+                    <div class="usa-alert__body">
+                        <h4 class="usa-alert__heading">Application Submitted Successfully!</h4>
+                        <p class="usa-alert__text">
+                            Your application has been submitted with ID: <strong>${applicationId}</strong>
+                            <br>You will receive an email confirmation shortly.
+                            <br><a href="track.html?id=${applicationId}" class="usa-link">Track your application status</a>
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            // Insert alert at top of form section
+            const formSection = document.querySelector('.permit-form-section');
+            formSection.insertAdjacentHTML('afterbegin', alertHTML);
+            
+            // Scroll to top of form
+            formSection.scrollIntoView({ behavior: 'smooth' });
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+                document.getElementById('permit-application-form').reset();
+            }, 3000);
+        }
+
+        // Save draft functionality
+        document.getElementById('save-draft').addEventListener('click', function() {
+            const formData = new FormData(document.getElementById('permit-application-form'));
+            const draftData = Object.fromEntries(formData);
+            
+            // Save to localStorage (in real app would save to server)
+            localStorage.setItem('permit-draft', JSON.stringify({
+                ...draftData,
+                savedAt: new Date().toISOString()
+            }));
+            
+            // Show draft saved message
+            const alertHTML = `
+                <div class="usa-alert usa-alert--info margin-bottom-2" role="alert">
+                    <div class="usa-alert__body">
+                        <h4 class="usa-alert__heading">Draft Saved</h4>
+                        <p class="usa-alert__text">
+                            Your application has been saved as a draft. You can continue working on it later.
+                        </p>
+                    </div>
+                </div>
+            `;
+            
+            const formSection = document.querySelector('.permit-form-section');
+            const existingAlert = formSection.querySelector('.usa-alert');
+            if (existingAlert) {
+                existingAlert.remove();
+            }
+            formSection.insertAdjacentHTML('afterbegin', alertHTML);
+            
+            // Remove alert after 5 seconds
+            setTimeout(() => {
+                const alert = formSection.querySelector('.usa-alert');
+                if (alert) alert.remove();
+            }, 5000);
+        });
+
+        // Load draft on page load
+        window.addEventListener('load', function() {
+            const savedDraft = localStorage.getItem('permit-draft');
+            if (savedDraft) {
+                const draftData = JSON.parse(savedDraft);
+                const form = document.getElementById('permit-application-form');
+                
+                // Populate form fields
+                Object.keys(draftData).forEach(key => {
+                    if (key !== 'savedAt') {
+                        const field = form.querySelector(`[name="${key}"]`);
+                        if (field) {
+                            if (field.type === 'radio') {
+                                const radio = form.querySelector(`[name="${key}"][value="${draftData[key]}"]`);
+                                if (radio) radio.checked = true;
+                            } else if (field.type === 'checkbox') {
+                                field.checked = draftData[key] === 'on';
+                            } else {
+                                field.value = draftData[key];
+                            }
+                        }
+                    }
+                });
+                
+                // Show draft loaded message
+                const alertHTML = `
+                    <div class="usa-alert usa-alert--info margin-bottom-2" role="alert">
+                        <div class="usa-alert__body">
+                            <h4 class="usa-alert__heading">Draft Loaded</h4>
+                            <p class="usa-alert__text">
+                                Your saved draft from ${new Date(draftData.savedAt).toLocaleDateString()} has been loaded.
+                            </p>
+                        </div>
+                    </div>
+                `;
+                
+                const formSection = document.querySelector('.permit-form-section');
+                formSection.insertAdjacentHTML('afterbegin', alertHTML);
+                
+                // Remove alert after 5 seconds
+                setTimeout(() => {
+                    const alert = formSection.querySelector('.usa-alert');
+                    if (alert) alert.remove();
+                }, 5000);
+            }
+        });
+
+        // Set minimum date to today
+        document.getElementById('start-date').min = new Date().toISOString().split('T')[0];
+    </script>
+    
+    <style>
+        .permit-form-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0.25rem;
+            border: 1px solid #e6e6e6;
+        }
+        
+        .usa-fieldset {
+            margin-bottom: 2rem;
+        }
+        
+        .usa-legend--large {
+            color: #0076d6;
+            border-bottom: 2px solid #dfe1e2;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .usa-file-input__target {
+            border: 2px dashed #dfe1e2;
+            transition: all 0.3s ease;
+        }
+        
+        .usa-file-input__target:hover {
+            border-color: #0076d6;
+            background-color: #f8f9fa;
+        }
+        
+        .usa-button--outline:hover {
+            background-color: #0076d6;
+            border-color: #0076d6;
+        }
+        
+        /* Required field indicator */
+        .usa-label::after {
+            content: "";
+        }
+        
+        input:required + .usa-label::after,
+        select:required + .usa-label::after,
+        textarea:required + .usa-label::after {
+            content: " *";
+            color: #d54309;
+        }
+    </style>
+</body>
+</html>

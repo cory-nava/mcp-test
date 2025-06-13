@@ -203,22 +203,26 @@ flowchart TD
 ## File Structure
 
 ```
-/
-├── index.html              # Main application page
-├── README.md              # This file
+mcp-test/
+├── README.md                 # Main documentation with Mermaid diagrams
+├── package.json             # Project configuration
+├── index.html               # Landing page
+├── dashboard.html           # Dashboard page
+├── apply.html               # Application form page
+├── track.html               # Application tracking page
+├── resources.html           # Resources and information page
 ├── assets/
 │   ├── css/
-│   │   └── custom.css     # Custom styles
+│   │   └── custom.css       # Custom styles
 │   ├── js/
-│   │   └── app.js         # Application JavaScript
-│   └── images/
-├── forms/
-│   ├── building-permit.html
-│   ├── electrical-permit.html
-│   └── plumbing-permit.html
-└── docs/
-    ├── api-documentation.md
-    └── deployment-guide.md
+│   │   └── app.js           # Application JavaScript
+│   └── images/              # Images and icons (if needed)
+├── docs/                    # Additional documentation
+│   ├── api-documentation.md
+│   └── deployment-guide.md
+└── .github/
+    └── workflows/
+        └── pages.yml        # GitHub Actions for Pages (optional)
 ```
 
 ## Getting Started

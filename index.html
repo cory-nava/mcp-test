@@ -10,19 +10,280 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/css/uswds.min.css">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
     
-    <meta name="description" content="City of Springfield permitting portal - Apply for building permits, track applications, and access resources. Created via MCP server.">
-    <meta name="keywords" content="permits, building, electrical, plumbing, government, Springfield, MCP, USWDS">
+    <meta name="description" content="City of Springfield permitting portal - Apply for building permits, track applications, and access resources.">
+    <meta name="keywords" content="permits, building, electrical, plumbing, government, Springfield">
     <meta name="author" content="City of Springfield">
 </head>
 <body>
+    <!-- Header -->
+    <header class="usa-header usa-header--extended">
+        <div class="usa-navbar">
+            <div class="usa-logo">
+                <em class="usa-logo__text">
+                    <a href="index.html" title="Home" aria-label="Home">City Permitting Portal</a>
+                </em>
+            </div>
+            <button type="button" class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+            <div class="usa-nav__inner">
+                <button type="button" class="usa-nav__close">
+                    <img src="/img/usa-icons/close.svg" role="img" alt="Close">
+                </button>
+                <ul class="usa-nav__primary usa-accordion">
+                    <li class="usa-nav__primary-item">
+                        <a href="dashboard.html" class="usa-nav__link">Dashboard</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="apply.html" class="usa-nav__link">Apply for Permit</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="track.html" class="usa-nav__link">Track Application</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="resources.html" class="usa-nav__link">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="usa-hero">
+            <div class="grid-container">
+                <div class="usa-hero__callout">
+                    <h1 class="usa-hero__heading">
+                        <span class="usa-hero__heading--alt">City of Springfield:</span>
+                        Streamlined Permitting
+                    </h1>
+                    <p>Apply for building permits, track your applications, and access resources all in one place. Built with the U.S. Web Design System for accessibility and ease of use.</p>
+                    <a class="usa-button usa-button--big" href="apply.html">Apply for a Permit</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions Section -->
+        <section class="usa-section">
+            <div class="grid-container">
+                <h2>Quick Actions</h2>
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">New Application</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Start a new permit application for building, electrical, plumbing, or mechanical work.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="apply.html" class="usa-button">Get Started</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">Track Progress</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Check the status of your existing permit applications and view timeline updates.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="track.html" class="usa-button usa-button--outline">Track Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-card">
+                            <div class="usa-card__container">
+                                <div class="usa-card__header">
+                                    <h3 class="usa-card__heading">View Dashboard</h3>
+                                </div>
+                                <div class="usa-card__body">
+                                    <p>Access your personalized dashboard to manage all your permits in one place.</p>
+                                </div>
+                                <div class="usa-card__footer">
+                                    <a href="dashboard.html" class="usa-button usa-button--outline">Go to Dashboard</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Information Section -->
+        <section class="usa-section usa-section--light">
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-8">
+                        <h2>Permit Types Available</h2>
+                        <div class="usa-accordion usa-accordion--bordered">
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a1">
+                                    Building Permits
+                                </button>
+                            </h3>
+                            <div id="a1" class="usa-accordion__content usa-prose">
+                                <p>Required for construction, renovation, or structural changes to buildings. Includes new construction, additions, alterations, and demolitions.</p>
+                                <ul>
+                                    <li>New construction</li>
+                                    <li>Additions and renovations</li>
+                                    <li>Structural modifications</li>
+                                    <li>Demolition permits</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a2">
+                                    Electrical Permits
+                                </button>
+                            </h3>
+                            <div id="a2" class="usa-accordion__content usa-prose">
+                                <p>Required for electrical work and installations including wiring, panel upgrades, and new electrical systems.</p>
+                                <ul>
+                                    <li>Panel upgrades and replacements</li>
+                                    <li>New electrical installations</li>
+                                    <li>Wiring modifications</li>
+                                    <li>Commercial electrical work</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a3">
+                                    Plumbing Permits
+                                </button>
+                            </h3>
+                            <div id="a3" class="usa-accordion__content usa-prose">
+                                <p>Required for plumbing installations, repairs, and modifications to water and sewer systems.</p>
+                                <ul>
+                                    <li>New plumbing installations</li>
+                                    <li>Pipe replacements and repairs</li>
+                                    <li>Fixture installations</li>
+                                    <li>Water heater installations</li>
+                                </ul>
+                            </div>
+
+                            <h3 class="usa-accordion__heading">
+                                <button type="button" class="usa-accordion__button" aria-expanded="false" aria-controls="a4">
+                                    Mechanical Permits
+                                </button>
+                            </h3>
+                            <div id="a4" class="usa-accordion__content usa-prose">
+                                <p>Required for HVAC and mechanical systems including heating, cooling, and ventilation work.</p>
+                                <ul>
+                                    <li>HVAC system installations</li>
+                                    <li>Ductwork modifications</li>
+                                    <li>Ventilation systems</li>
+                                    <li>Commercial mechanical work</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tablet:grid-col-4">
+                        <div class="usa-summary-box">
+                            <div class="usa-summary-box__body">
+                                <h3 class="usa-summary-box__heading">Contact Information</h3>
+                                <div class="usa-summary-box__text">
+                                    <p><strong>Building Department</strong></p>
+                                    <p>123 Government Plaza<br>Springfield, IL 62701</p>
+                                    <p><strong>Phone:</strong> (217) 555-0123</p>
+                                    <p><strong>Email:</strong> permits@springfield.gov</p>
+                                    <p><strong>Hours:</strong> Monday-Friday<br>8:00 AM - 5:00 PM</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="usa-alert usa-alert--info usa-alert--no-icon margin-top-2">
+                            <div class="usa-alert__body">
+                                <h4 class="usa-alert__heading">Need Help?</h4>
+                                <p class="usa-alert__text">
+                                    Our staff is available to help you with permit applications and questions during business hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="usa-footer">
+        <div class="grid-container usa-footer__return-to-top">
+            <a href="#">Return to top</a>
+        </div>
+        <div class="usa-footer__primary-section">
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-8">
+                        <nav class="usa-footer__nav">
+                            <ul class="grid-row grid-gap">
+                                <li class="tablet:grid-col-6 usa-footer__primary-content">
+                                    <a class="usa-footer__primary-link" href="">Permit Types</a>
+                                    <ul class="usa-list usa-list--unstyled">
+                                        <li><a href="#" class="usa-footer__secondary-link">Building Permits</a></li>
+                                        <li><a href="#" class="usa-footer__secondary-link">Electrical Permits</a></li>
+                                        <li><a href="#" class="usa-footer__secondary-link">Plumbing Permits</a></li>
+                                    </ul>
+                                </li>
+                                <li class="tablet:grid-col-6 usa-footer__primary-content">
+                                    <a class="usa-footer__primary-link" href="">Resources</a>
+                                    <ul class="usa-list usa-list--unstyled">
+                                        <li><a href="resources.html" class="usa-footer__secondary-link">Building Codes</a></li>
+                                        <li><a href="resources.html" class="usa-footer__secondary-link">Fee Schedule</a></li>
+                                        <li><a href="resources.html" class="usa-footer__secondary-link">Forms & Documents</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="tablet:grid-col-4">
+                        <address class="usa-footer__address">
+                            <div class="usa-footer__contact-info grid-row grid-gap">
+                                <div class="grid-col-auto">
+                                    <p>City of Springfield<br>Building Department<br>123 Government Plaza<br>Springfield, IL 62701</p>
+                                </div>
+                            </div>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="usa-footer__secondary-section">
+            <div class="grid-container">
+                <div class="usa-footer__logo grid-row grid-gap-2">
+                    <div class="grid-col-auto">
+                        <p class="usa-footer__logo-text">City of Springfield Permitting Portal</p>
+                        <p class="usa-footer__logo-text"><small>Created via MCP Server</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- USWDS JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/js/uswds.min.js"></script>
     
-    <!-- Custom JavaScript -->
-    <script src="app.js"></script>
-    
-    <p><em>This application was created via MCP server as a demonstration of USWDS-based government applications.</em></p>
+    <style>
+        .permit-card {
+            border-left: 4px solid #0076d6;
+            margin-bottom: 1rem;
+        }
+        .usa-hero {
+            background: linear-gradient(135deg, #0076d6 0%, #004785 100%);
+        }
+    </style>
 </body>
 </html>

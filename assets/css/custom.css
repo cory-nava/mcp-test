@@ -370,3 +370,58 @@
         border-left: 1px solid #000;
     }
 }
+
+/* Inline fallback styles if custom.css doesn't load */
+.permit-card {
+    border-left: 4px solid #0076d6;
+    margin-bottom: 1rem;
+}
+.status-approved { border-left-color: #00a91c; }
+.status-pending { border-left-color: #ffbe2e; }
+.status-rejected { border-left-color: #d54309; }
+.status-under-review { border-left-color: #0076d6; }
+
+.dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: #f0f0f0;
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0076d6;
+}
+
+.timeline-item {
+    border-left: 2px solid #dfe1e2;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 0.5rem;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #0076d6;
+}
+
+.permit-form-section {
+    background: #f8f9fa;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0.25rem;
+}

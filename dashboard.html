@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - City Permitting Portal</title>
+    
+    <!-- USWDS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/css/uswds.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="usa-header usa-header--extended">
+        <div class="usa-navbar">
+            <div class="usa-logo">
+                <em class="usa-logo__text">
+                    <a href="index.html" title="Home" aria-label="Home">City Permitting Portal</a>
+                </em>
+            </div>
+            <button type="button" class="usa-menu-btn">Menu</button>
+        </div>
+        <nav aria-label="Primary navigation" class="usa-nav">
+            <div class="usa-nav__inner">
+                <button type="button" class="usa-nav__close">
+                    <img src="/img/usa-icons/close.svg" role="img" alt="Close">
+                </button>
+                <ul class="usa-nav__primary usa-accordion">
+                    <li class="usa-nav__primary-item">
+                        <a href="dashboard.html" class="usa-nav__link usa-current">Dashboard</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="apply.html" class="usa-nav__link">Apply for Permit</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="track.html" class="usa-nav__link">Track Application</a>
+                    </li>
+                    <li class="usa-nav__primary-item">
+                        <a href="resources.html" class="usa-nav__link">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Dashboard Section -->
+        <section class="usa-section">
+            <div class="grid-container">
+                <div class="grid-row grid-gap">
+                    <div class="tablet:grid-col-12">
+                        <h1>Application Dashboard</h1>
+                        <p class="usa-intro">Welcome back, John Smith. Here's an overview of your permit applications.</p>
+                        
+                        <!-- Dashboard Stats -->
+                        <div class="dashboard-stats">
+                            <div class="stat-card">
+                                <div class="stat-number">3</div>
+                                <div>Active Applications</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">12</div>
+                                <div>Total Permits</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">2</div>
+                                <div>Approved This Month</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">14</div>
+                                <div>Avg. Days to Approval</div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Applications -->
+                        <h2>Your Recent Applications</h2>
+                        <div class="grid-row grid-gap">
+                            <div class="tablet:grid-col-6">
+                                <div class="usa-card permit-card status-under-review">
+                                    <div class="usa-card__container">
+                                        <div class="usa-card__header">
+                                            <h3 class="usa-card__heading">Building Permit - Deck Addition</h3>
+                                        </div>
+                                        <div class="usa-card__body">
+                                            <p><strong>Application ID:</strong> BP-2024-0341</p>
+                                            <p><strong>Property:</strong> 123 Main Street</p>
+                                            <p><strong>Submitted:</strong> March 15, 2024</p>
+                                            <p><strong>Status:</strong> <span class="usa-tag usa-tag--big">Under Review</span></p>
+                                        </div>
+                                        <div class="usa-card__footer">
+                                            <a href="track.html?id=BP-2024-0341" class="usa-button usa-button--outline">View Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tablet:grid-col-6">
+                                <div class="usa-card permit-card status-approved">
+                                    <div class="usa-card__container">
+                                        <div class="usa-card__header">
+                                            <h3 class="usa-card__heading">Electrical Permit - Panel Upgrade</h3>
+                                        </div>
+                                        <div class="usa-card__body">
+                                            <p><strong>Application ID:</strong> EP-2024-0298</p>
+                                            <p><strong>Property:</strong> 456 Oak Avenue</p>
+                                            <p><strong>Submitted:</strong> February 28, 2024</p>
+                                            <p><strong>Status:</strong> <span class="usa-tag usa-tag--big bg-success">Approved</span></p>
+                                        </div>
+                                        <div class="usa-card__footer">
+                                            <button class="usa-button usa-button--outline">Download Permit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="grid-row grid-gap margin-top-3">
+                            <div class="tablet:grid-col-6">
+                                <div class="usa-card permit-card status-pending">
+                                    <div class="usa-card__container">
+                                        <div class="usa-card__header">
+                                            <h3 class="usa-card__heading">Plumbing Permit - Bathroom Renovation</h3>
+                                        </div>
+                                        <div class="usa-card__body">
+                                            <p><strong>Application ID:</strong> PP-2024-0156</p>
+                                            <p><strong>Property:</strong> 789 Pine Street</p>
+                                            <p><strong>Submitted:</strong> March 22, 2024</p>
+                                            <p><strong>Status:</strong> <span class="usa-tag usa-tag--big">Pending Payment</span></p>
+                                        </div>
+                                        <div class="usa-card__footer">
+                                            <button class="usa-button">Pay Now</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tablet:grid-col-6">
+                                <div class="usa-card permit-card status-rejected">
+                                    <div class="usa-card__container">
+                                        <div class="usa-card__header">
+                                            <h3 class="usa-card__heading">Building Permit - Shed Construction</h3>
+                                        </div>
+                                        <div class="usa-card__body">
+                                            <p><strong>Application ID:</strong> BP-2024-0287</p>
+                                            <p><strong>Property:</strong> 321 Elm Drive</p>
+                                            <p><strong>Submitted:</strong> February 14, 2024</p>
+                                            <p><strong>Status:</strong> <span class="usa-tag usa-tag--big">Needs Revision</span></p>
+                                        </div>
+                                        <div class="usa-card__footer">
+                                            <a href="apply.html?edit=BP-2024-0287" class="usa-button usa-button--secondary">Revise Application</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <h2>Quick Actions</h2>
+                        <div class="grid-row grid-gap">
+                            <div class="tablet:grid-col-4">
+                                <a href="apply.html" class="usa-button usa-button--big display-block text-center">
+                                    New Application
+                                </a>
+                            </div>
+                            <div class="tablet:grid-col-4">
+                                <a href="track.html" class="usa-button usa-button--outline usa-button--big display-block text-center">
+                                    Track Application
+                                </a>
+                            </div>
+                            <div class="tablet:grid-col-4">
+                                <a href="resources.html" class="usa-button usa-button--outline usa-button--big display-block text-center">
+                                    View Resources
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="usa-footer">
+        <div class="grid-container usa-footer__return-to-top">
+            <a href="#">Return to top</a>
+        </div>
+        <div class="usa-footer__secondary-section">
+            <div class="grid-container">
+                <div class="usa-footer__logo grid-row grid-gap-2">
+                    <div class="grid-col-auto">
+                        <p class="usa-footer__logo-text">City of Springfield Permitting Portal</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- USWDS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uswds/3.7.1/js/uswds.min.js"></script>
+    <script src="assets/js/app.js"></script>
+    
+    <style>
+        .permit-card {
+            border-left: 4px solid #0076d6;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .permit-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        .status-approved { border-left-color: #00a91c; }
+        .status-pending { border-left-color: #ffbe2e; }
+        .status-rejected { border-left-color: #d54309; }
+        .status-under-review { border-left-color: #0076d6; }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: #f0f0f0;
+            padding: 1.5rem;
+            border-radius: 0.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            background: #e8f4fd;
+            transform: translateY(-1px);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #0076d6;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</body>
+</html>
